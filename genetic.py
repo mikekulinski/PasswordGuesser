@@ -64,10 +64,16 @@ def guessPassword(
 
 if __name__ == "__main__":
     population_size = 200
-    password = "asdipobasbculobeuwoiubvcasklseiuasdgbwerbwergaspovurpoucnp"
+    password = "".join([random.choice(string.ascii_letters) for _ in range(50)])
     number_of_best = 80
     number_of_children = 5
     chance_of_mutation = 0.01
-    print(
-        f"Final guess: {guessPassword(password,population_size,number_of_best,number_of_children,chance_of_mutation)}"
+    result = guessPassword(
+        password,
+        population_size,
+        number_of_best,
+        number_of_children,
+        chance_of_mutation,
     )
+    print(f"Password: \t {password}")
+    print(f"Final guess: \t {result}")
